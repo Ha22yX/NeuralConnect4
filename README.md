@@ -62,10 +62,14 @@ pip install -r requirements.txt
 python game/ai_training/train_neural.py --batch_size 512 --num_simulations 400 --num_iterations 50
 ```
 
-2. **Playing Against the AI**:
+2. **Play the current local GUI**:
 ```bash
 python game/main.py
 ```
+
+Note: `game/main.py` currently starts the local Connect Four GUI. A human-vs-AI
+inference mode for loading trained checkpoints is planned but not implemented in
+the current repository state.
 
 ### Training Parameters
 - `batch_size`: Size of training batches (default: 512)

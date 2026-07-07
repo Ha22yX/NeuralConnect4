@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.Python
+.venv/
+venv/
+env/
+
+models/
+*.pth
+*.pkl
+training.log
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
