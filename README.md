@@ -5,7 +5,9 @@
 ## English Version
 
 ### Introduction
-NeuralConnect4 is an advanced AI system for the game of Connect Four, implementing state-of-the-art deep learning and reinforcement learning techniques. The project combines Neural Networks with Monte Carlo Tree Search (MCTS) to create a powerful AI that learns and improves through self-play, similar to the approaches used in AlphaGo and AlphaZero.
+NeuralConnect4 is an experimental Connect Four AI project. It combines a neural
+network, Monte Carlo Tree Search (MCTS), and self-play training code to explore
+AlphaZero-style game learning on a small board game.
 
 ### Key Features
 - Deep Neural Network with ResNet architecture
