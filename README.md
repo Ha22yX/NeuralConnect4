@@ -1,11 +1,13 @@
 <div align="center">
   <h1>NeuralConnect4</h1>
-  <p>A Connect Four AI experiment combining neural networks, MCTS, and self-play training.</p>
+  <p>A Connect Four AI experiment combining neural networks, Monte Carlo Tree Search, and self-play training.</p>
 
   <p>
     <a href="README.zh-CN.md">Chinese</a>
     &middot;
     <a href="#quickstart">Quickstart</a>
+    &middot;
+    <a href="#features">Features</a>
     &middot;
     <a href="#tech-stack">Tech Stack</a>
   </p>
@@ -21,26 +23,30 @@
   <img src=".github/assets/readme-hero.svg" alt="NeuralConnect4 overview image" width="100%" />
 </p>
 
-## Why This Exists
+## Overview
 
-Connect Four is small enough for fast iteration but still rich enough to study search, policy/value networks, and self-play training loops inspired by AlphaZero-style learning.
+Connect Four is small enough for fast iteration but still rich enough to study policy/value networks, search, and self-play loops.
 
-## Workflow
-
-- Play or test the local Pygame Connect Four board.
-- Represent board states for neural-network evaluation.
-- Use MCTS to explore moves with policy/value guidance.
-- Generate self-play games and store training examples.
-- Train checkpoints and inspect logs/plots.
+This repo explores an AlphaZero-style learning path in a readable Python project: board state encoding, MCTS, neural evaluation, training logs, and a playable Pygame interface.
 
 ## Features
 
-- Playable Pygame Connect Four interface.
-- ResNet-style policy/value network experiments.
-- Neural-guided MCTS and self-play training loop.
-- Training logs and visualization hooks.
+- Playable local Connect Four board built with Pygame.
+- Board/state representation for search and model training.
+- MCTS and neural-guided MCTS experiments.
+- Policy/value neural network training through self-play data.
+- Training logs and plotting hooks for progress inspection.
+
+## How It Works
+
+1. Run the local game to verify board logic and UI.
+2. Use game states as inputs for search and neural evaluation.
+3. Generate self-play examples with MCTS-guided decisions.
+4. Train model checkpoints and inspect performance over time.
 
 ## Quickstart
+
+Run the project locally with the commands below.
 
 ```bash
 git clone https://github.com/Ha22yX/NeuralConnect4.git
@@ -54,7 +60,16 @@ cd game/ai_training
 python train_neural.py --num_iterations 5 --num_simulations 100
 ```
 
-Start with small training settings for a smoke test, then increase iterations/simulations.
+Start with small iteration/simulation counts for a smoke test, then scale training settings gradually.
+
+## Configuration
+
+| Item | Purpose |
+| --- | --- |
+| Training iterations | Increase only after the end-to-end loop runs correctly. |
+| MCTS simulations | Higher values improve search quality but slow self-play. |
+| Checkpoints | Keep model outputs separate from source when running longer experiments. |
+| Device | PyTorch can use CPU by default; configure GPU only if available. |
 
 ## Tech Stack
 
@@ -62,10 +77,10 @@ Start with small training settings for a smoke test, then increase iterations/si
 | --- | --- | --- |
 | Game | Pygame | Board UI and local play loop. |
 | Learning | PyTorch | Policy/value neural network. |
-| Search | MCTS | Move selection guided by network evaluation. |
+| Search | MCTS | Move selection guided by evaluation. |
 | Analysis | matplotlib, TensorBoard | Training progress inspection. |
 
-## Project Map
+## Project Layout
 
 ```text
 game/main.py                 local game entry point
@@ -73,8 +88,13 @@ game/board.py                board logic
 game/gui.py                  Pygame UI
 game/ai_training/            neural net, MCTS, state, training scripts
 requirements.txt             Python dependencies
+training.log                 sample training log
 ```
 
-## Notes
+## Status
 
-This is an AI learning project, not a polished released game. Human-vs-checkpoint inference is a natural future step.
+AI learning project, not a polished game release. Human-vs-checkpoint play and stronger evaluation tooling are natural next steps.
+
+## License
+
+No project-wide open-source license has been declared yet.
