@@ -13,7 +13,7 @@
   <p>
     <img alt="Python: PyTorch" src="https://img.shields.io/badge/Python-PyTorch-3776AB?style=for-the-badge&logo=python&logoColor=white" />
     <img alt="Game AI: MCTS" src="https://img.shields.io/badge/Game%20AI-MCTS-287866?style=for-the-badge" />
-    <img alt="Training: self-play" src="https://img.shields.io/badge/Training-self-play-7d73b7?style=for-the-badge" />
+    <img alt="Training: self-play" src="https://img.shields.io/badge/Training-self--play-7d73b7?style=for-the-badge" />
   </p>
 </div>
 
@@ -23,7 +23,22 @@
 
 ## Why This Exists
 
-Connect Four is small enough to experiment quickly, but rich enough to study search, policy/value networks, and self-play loops inspired by AlphaZero-style learning.
+Connect Four is small enough for fast iteration but still rich enough to study search, policy/value networks, and self-play training loops inspired by AlphaZero-style learning.
+
+## Workflow
+
+- Play or test the local Pygame Connect Four board.
+- Represent board states for neural-network evaluation.
+- Use MCTS to explore moves with policy/value guidance.
+- Generate self-play games and store training examples.
+- Train checkpoints and inspect logs/plots.
+
+## Features
+
+- Playable Pygame Connect Four interface.
+- ResNet-style policy/value network experiments.
+- Neural-guided MCTS and self-play training loop.
+- Training logs and visualization hooks.
 
 ## Quickstart
 
@@ -39,14 +54,7 @@ cd game/ai_training
 python train_neural.py --num_iterations 5 --num_simulations 100
 ```
 
-The GUI starts a local Connect Four board. Training settings can be increased after a smoke test.
-
-## Features
-
-- Pygame Connect Four interface for local play.
-- ResNet-style policy/value network experiments.
-- Neural-guided MCTS and self-play training loop.
-- Training logs and visualization hooks for iteration review.
+Start with small training settings for a smoke test, then increase iterations/simulations.
 
 ## Tech Stack
 
@@ -57,7 +65,16 @@ The GUI starts a local Connect Four board. Training settings can be increased af
 | Search | MCTS | Move selection guided by network evaluation. |
 | Analysis | matplotlib, TensorBoard | Training progress inspection. |
 
+## Project Map
 
-## Project Notes
+```text
+game/main.py                 local game entry point
+game/board.py                board logic
+game/gui.py                  Pygame UI
+game/ai_training/            neural net, MCTS, state, training scripts
+requirements.txt             Python dependencies
+```
 
-This is a learning and experimentation repo, not a polished game product. Human-vs-AI inference is a natural next step after checkpoint loading is finalized.
+## Notes
+
+This is an AI learning project, not a polished released game. Human-vs-checkpoint inference is a natural future step.
